@@ -9,9 +9,9 @@ public class Cancion {
     private String autor;
     private int duracion;
     private String disco;
-    private String letra;
 
-    public Cancion(String path, String id, String nombre, String genero, String autor, int duracion, String disco, String letra) {
+
+    public Cancion(String path, String id, String nombre, String genero, String autor, int duracion, String disco) {
         this.path = path;
         this.id = id;
         this.nombre = nombre;
@@ -19,7 +19,7 @@ public class Cancion {
         this.autor = autor;
         this.duracion = duracion;
         this.disco = disco;
-        this.letra = letra;
+
     }
 
 
@@ -78,13 +78,5 @@ public class Cancion {
 
     public void setDisco(String disco) {
         this.disco = disco;
-    }
-
-    public String getLetra() {
-        return letra;
-    }
-
-    public void setLetra(String letra) {
-        this.letra = letra;
     }
 }
