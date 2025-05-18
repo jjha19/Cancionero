@@ -2,42 +2,35 @@ package domain;
 
 public class Cancion {
 
-    private String path;
     private String id;
+    private String path;
     private String nombre;
     private String genero;
     private String autor;
-    private int duracion;
+    private String duracion;
     private String disco;
 
 
-    public Cancion(String path, String id, String nombre, String genero, String autor, int duracion, String disco) {
-        this.path = path;
+    public Cancion(String id, String path, String nombre, String genero, String autor, String duracion, String disco) {
         this.id = id;
+        this.path = path;
         this.nombre = nombre;
         this.genero = genero;
         this.autor = autor;
         this.duracion = duracion;
         this.disco = disco;
-
     }
 
 
     //Getters y setters
-    public String getPath() {
-        return path;
-    }
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
+
+    public String getPath() { return path; }
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -64,11 +57,11 @@ public class Cancion {
         this.autor = autor;
     }
 
-    public int getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 
@@ -78,5 +71,10 @@ public class Cancion {
 
     public void setDisco(String disco) {
         this.disco = disco;
+    }
+
+    @Override
+    public String toString() {
+        return id + ";" + path + ";" + nombre + ";" + genero + ";" + autor + ";" + duracion + ";" + disco;
     }
 }
