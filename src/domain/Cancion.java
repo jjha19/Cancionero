@@ -7,7 +7,7 @@ import java.io.FileReader;
 
 public class Cancion {
 
-    private String id;
+    private int id;
     private String path;
     private String nombre;
     private String genero;
@@ -16,7 +16,7 @@ public class Cancion {
     private String disco;
 
 
-    public Cancion(String id, String path, String nombre, String genero, String autor, String duracion, String disco) {
+    public Cancion(int id, String path, String nombre, String genero, String autor, String duracion, String disco) {
         this.id = id;
         this.path = path;
         this.nombre = nombre;
@@ -32,9 +32,9 @@ public class Cancion {
 
 
     //Getters y setters
-    public String getId() { return id; }
+    public int getId() { return id; }
 
-    public void setId(String id) { this.id = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getPath() { return path; }
 

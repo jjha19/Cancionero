@@ -1,6 +1,7 @@
 package dao;
 
 import domain.Cancion;
+import domain.Usuario;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class GestorCanciones {
                 System.out.println("Leyendo línea: " + linea);
                 String[] partes = linea.split(";");
                 if (partes.length == 7) {
-                    String id = partes[0];
+                    int id = Integer.parseInt(partes[0]);
                     String path = partes[1];
                     String nombre = partes[2];
                     String genero = partes[3];
@@ -44,5 +45,10 @@ public class GestorCanciones {
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
+    }
+
+    public int crearID(ArrayList<Cancion> canciones) {
+        int lastID = canciones.getLast().getId();
+        return lastID + 1;
     }
 }

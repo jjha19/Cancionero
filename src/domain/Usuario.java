@@ -1,12 +1,14 @@
 package domain;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Usuario {
     private int id;
     private String username;
     private String password;
-    private int tiempoEnApp;
+    private LocalDate fechaperfil;
+    private int rol;
     private ArrayList<Playlist> playlists;
 
     /*   ROLES:
@@ -14,14 +16,27 @@ public class Usuario {
     * 2: Artista
     * 3: Administrador       */
 
-    private int rol;
 
-    public Usuario(int id, String username, String password, int tiempoEnApp, int rol) {
+
+
+    public Usuario(int id, String username, String password, LocalDate fechaperfil, int rol) {
+
         this.id = id;
         this.username = username;
         this.password = password;
-        this.tiempoEnApp = tiempoEnApp;
+        this.fechaperfil = fechaperfil;
         this.rol = rol;
+        this.playlists = null;
+    }
+
+    public Usuario(int id, String username, String password, String fechaperfil, int rol) {
+        LocalDate fecha = LocalDate.parse(fechaperfil);
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.fechaperfil = fecha;
+        this.rol = rol;
+        this.playlists = null;
     }
 
     //Getters Y Setters
@@ -50,12 +65,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public int getTiempoEnApp() {
-        return tiempoEnApp;
+    public LocalDate getFechaperfil() {
+        return fechaperfil;
     }
 
-    public void setTiempoEnApp(int tiempoEnApp) {
-        this.tiempoEnApp = tiempoEnApp;
+    public void setFechaperfil(LocalDate fechaperfil) {
+        this.fechaperfil = fechaperfil;
     }
 
     public ArrayList<Playlist> getPlaylists() {
@@ -78,8 +93,8 @@ public class Usuario {
 
 class Artista extends Usuario{
     private ArrayList<Cancion> canciones;
-    public Artista(int id, String username, String password, int tiempoEnApp, int rol, ArrayList<Cancion> canciones) {
-        super(id, username, password, tiempoEnApp, rol);
+    public Artista(int id, String username, String password, LocalDate fecha, int rol, ArrayList<Cancion> canciones) {
+        super(id, username, password,fecha, rol);
         this.canciones = canciones;
     }
 }
