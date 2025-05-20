@@ -1,5 +1,10 @@
 package domain;
 
+import dao.GestorCanciones;
+
+import java.io.File;
+import java.io.FileReader;
+
 public class Cancion {
 
     private String id;
@@ -19,6 +24,10 @@ public class Cancion {
         this.autor = autor;
         this.duracion = duracion;
         this.disco = disco;
+    }
+
+    public Cancion(){
+        GestorCanciones.leerCancionesDeArchivo("dao/bbdd_canciones.txt").stream().findFirst();
     }
 
 
@@ -76,5 +85,9 @@ public class Cancion {
     @Override
     public String toString() {
         return id + ";" + path + ";" + nombre + ";" + genero + ";" + autor + ";" + duracion + ";" + disco;
+    }
+
+    public String listarCanciones() {
+        return id + " - " + nombre + " - " + autor + " - " + genero;
     }
 }

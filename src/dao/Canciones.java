@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Canciones {
     ArrayList<Cancion> canciones;
     public Canciones(){
-        ArrayList<Cancion> canciones = GestorCanciones.leerCancionesDeArchivo("bbdd_canciones.txt");
+        ArrayList<Cancion> canciones = GestorCanciones.leerCancionesDeArchivo("dao/bbdd_canciones.txt");
     }
     public Canciones(ArrayList<Cancion> canciones){
         this.canciones = canciones;
@@ -28,7 +28,11 @@ public class Canciones {
     }
 
     public String toString(){
-        return canciones.toString();
+        StringBuilder songs = new StringBuilder();
+        for (Cancion cancion : canciones) {
+            songs.append(cancion.toString() + "\n");
+        }
+        return songs.toString();
     }
 
     public Cancion encontrarCancion(String nombreCancion){
