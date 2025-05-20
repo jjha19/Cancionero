@@ -23,6 +23,7 @@ public class EntradaSalida {
         }while (!valido);
         return opcion;
     }
+
     public static String lectorDeTexto(){
         Scanner lector = new Scanner(System.in);
         boolean valido = false;

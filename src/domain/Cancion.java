@@ -87,7 +87,7 @@ public class Cancion {
         return id + ";" + path + ";" + nombre + ";" + genero + ";" + autor + ";" + duracion + ";" + disco;
     }
 
-    public String listarCanciones() {
+    public String listarCancion() {
         return id + " - " + nombre + " - " + autor + " - " + genero;
     }
 }

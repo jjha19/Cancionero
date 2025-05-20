@@ -35,10 +35,19 @@ public class Canciones {
         return songs.toString();
     }
 
+
+    public String listarCanciones() {
+        StringBuilder songs = new StringBuilder();
+        for (Cancion cancion : canciones) {
+            songs.append(cancion.listarCancion()).append("\n");
+        }
+        return songs.toString();
+    }
+
     public Cancion encontrarCancion(String nombreCancion){
         boolean encontrado = false;
         for ( int i = 0; i < canciones.size(); i++) {
-            if (canciones.get(i).getNombre().equals(nombreCancion)) {
+            if (canciones.get(i).getNombre().equalsIgnoreCase(nombreCancion)) {
                 return canciones.get(i);
             }
         }

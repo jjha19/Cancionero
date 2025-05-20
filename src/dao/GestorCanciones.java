@@ -15,6 +15,7 @@ public class GestorCanciones {
             String linea;
 
             while ((linea = br.readLine()) != null) {
+                System.out.println("Leyendo línea: " + linea);
                 String[] partes = linea.split(";");
                 if (partes.length == 7) {
                     String id = partes[0];
