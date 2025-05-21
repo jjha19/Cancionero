@@ -17,7 +17,12 @@ public class Main {
         int opcion = EntradaSalida.lectorDeOpcionesNumericas();
         usuarioEnSesion = SesionImplementacion.gestionarUsuario(opcion, usuarios.getUsuarios());
         }while (usuarioEnSesion == null);
-
-        EntradaSalida.mainMenu();
+        if (usuarioEnSesion.getRol() == 1){
+            EntradaSalida.mainMenu();
+        }else if (usuarioEnSesion.getRol() == 2){
+            System.out.println("Programar Menú Artista");
+        }else if (usuarioEnSesion.getRol() == 3){
+            System.out.println("Programar Menú Administrador");
+        }
     }
 }

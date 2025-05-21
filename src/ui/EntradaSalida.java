@@ -54,7 +54,7 @@ public class EntradaSalida {
                     reproductor.reproducirCancion(canciones.encontrarCancion(request));
                     break;
                 case 2:
-
+                    System.out.println("Este todavía me falta hacerlo");
                     break;
             }
         } while (opcion != 3);
