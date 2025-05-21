@@ -1,13 +1,14 @@
 package ui;
 
 import Common.Constantes;
+import dao.Canciones;
+import dao.GestorCanciones;
+import dao.ReproductorMP3;
 
 import java.util.Scanner;
 
 public class EntradaSalida {
-
-
-    public static int lectorDeOpcionesNumericas(){
+    public static int lectorDeOpcionesNumericas() {
         Scanner lector = new Scanner(System.in);
         boolean valido = false;
         int opcion = 0;
@@ -20,19 +21,46 @@ public class EntradaSalida {
                 System.out.println(Constantes.FORMATOERRONEO);
                 lector.nextLine();
             }
-        }while (!valido);
+        } while (!valido);
         return opcion;
     }
 
-    public static String lectorDeTexto(){
+    public static String lectorDeTexto() {
         Scanner lector = new Scanner(System.in);
         boolean valido = false;
         String texto = lector.nextLine();
-        if (texto.isEmpty()){
+        if (texto.isEmpty()) {
             System.out.println(Constantes.FORMATOERRONEO);
         } else return texto;
         return texto;
     }
+
+    public static void mainMenu() {
+        Scanner lector = new Scanner(System.in);
+        boolean valido = false;
+        int opcion = 0;
+
+        do {
+            System.out.println(Constantes.MAINMENU);
+            opcion = EntradaSalida.lectorDeOpcionesNumericas();
+            String archivoCanciones = "src/dao/bbdd_canciones.txt";
+            ReproductorMP3 reproductor = new ReproductorMP3();
+            Canciones canciones = new Canciones(GestorCanciones.leerCancionesDeArchivo(archivoCanciones));
+            switch (opcion) {
+                case 1:
+                    System.out.println(canciones.listarCanciones());
+                    System.out.println(Constantes.PREGUNTARPORCANCION);
+                    String request = EntradaSalida.lectorDeTexto();
+                    reproductor.reproducirCancion(canciones.encontrarCancion(request));
+                    break;
+                case 2:
+
+                    break;
+            }
+        } while (opcion != 3);
+
+    }
+
 
     /*
     public static int eleccionRol (){

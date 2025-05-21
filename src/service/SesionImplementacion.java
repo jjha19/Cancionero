@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class Sesion {
+public class SesionImplementacion {
     public static Usuario gestionarUsuario(int opcion, ArrayList<Usuario> usuarios) {
         Usuario user = null;
         if (opcion == 1) {

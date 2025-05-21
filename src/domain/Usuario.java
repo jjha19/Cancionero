@@ -93,8 +93,8 @@ public class Usuario {
 
 class Artista extends Usuario{
     private ArrayList<Cancion> canciones;
-    public Artista(int id, String username, String password, LocalDate fecha, int rol, ArrayList<Cancion> canciones) {
+    public Artista(int id, String username, String password, LocalDate fecha, int rol, ArrayList<Cancion> cancionespropias) {
         super(id, username, password,fecha, rol);
-        this.canciones = canciones;
+        this.canciones = cancionespropias;
     }
 }

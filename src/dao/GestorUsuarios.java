@@ -28,7 +28,7 @@ public class GestorUsuarios {
     }
 
 
-    public int crearID(ArrayList<Usuario> usuarios) {
+    public static int crearID(ArrayList<Usuario> usuarios) {
         int lastID = 1;
         if (!usuarios.isEmpty()) {
             return lastID = usuarios.getLast().getId() + 1;
